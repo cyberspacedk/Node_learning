@@ -21,9 +21,8 @@ const multiplyId = (query, arr)=>{
 const filterById = (id , arr)=> arr.find(el=> el.id === id) || arr; 
  
 
-const getCars = (request, response) => {
-
-  // console.log('PARSED-URL \n\n\n', url.parse(request.url).path);
+const getCars = (request, response) => { 
+  
 
   // парсим url чтобы узнать какой  запрос путь, 
   // второй параметр true сделает объект из строки
@@ -32,14 +31,13 @@ const getCars = (request, response) => {
 
   const id = getId(parsedUrl.path);
 
-  const filePath = path.join(__dirname, "../../", "db", "cars.json");
-  // console.log('PATH \n\n',path.join(__dirname, "../../", "db", "cars.json"));
-  const fileData = JSON.parse(fs.readFileSync(filePath));
-//  console.log('FILE SYSTEM \n\n', JSON.stringify(fs.readFileSync(filePath)));
+  const filePath = path.join(__dirname, "../../", "db", "cars.json"); 
+  const fileData = JSON.parse(fs.readFileSync(filePath)); 
+
   let filteredCars;
  
   response.writeHead(200, { "Content-Type": "application/json" });
-
+debugger;
   if(!id) {
     response.write(JSON.stringify({ status: "success", cars: fileData.cars })); 
   }

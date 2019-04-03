@@ -1,25 +1,20 @@
-const http = require('http');
-const url = require('url');
-const fs = require('fs');
-const morgan = require('morgan');
-const router = require('./routes/router');
-const getRouteHandler = require('./helpers/get-route-handler');
+const express = require('express');
+const app = express();
 
-const logger = morgan('combined');
+const productrouter = require('./routes/productsRout/products.js');
 
 const startServer = port => {
 
-  const server = http.createServer((request, response) => {
-    // Get route from the request
-    const parsedUrl = url.parse(request.url);
-
-    // Get router function
-    const func = getRouteHandler(router, parsedUrl.pathname) || router.default;
-
-    logger(request, response, () => func(request, response));
+  app.get('/', (req,res)=>{
+    res.send('START')
   });
 
-  server.listen(port);
-};
+  app.use('/products', productrouter);
+    
+  app.listen(port, (req,res)=>{
+    console.log('SITE work on port ', port);
+  })
+}
+
 
 module.exports = startServer;
