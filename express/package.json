@@ -1,15 +1,21 @@
 {
-  "name": "express",
+  "name": "demo",
   "version": "1.0.0",
-  "description": "first launch",
+  "description": "",
   "main": "index.js",
-  "dependencies": {
-    "express": "^4.16.4"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js",
+    "debug": "nodemon --inspect index.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.0",
+    "nodemon": "^1.18.4"
+  }
 }
