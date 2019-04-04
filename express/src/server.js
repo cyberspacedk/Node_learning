@@ -1,4 +1,6 @@
-const express = require('express'); 
+const express = require('express');
+const bodyParse = require('body-parser');
+const logger = require('morgan');
 
 const app = express();
 const carsRouter = require('./routes/cars.js');
