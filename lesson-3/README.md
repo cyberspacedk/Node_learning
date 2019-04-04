@@ -107,7 +107,7 @@ html
 
 Затем создаем роут для вывода файла index.pug. Если свойство view engine не задано, необходимо указать расширение файла view. В противном случае, можно не указывать расширение.
 
-```
+```jsx
 app.get('/', function (req, res) {
   res.render('index', { title: 'Hey', message: 'Hello there!'});
 });
