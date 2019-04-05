@@ -10,7 +10,9 @@ myReadStream.on('open', () => {
 
 myReadStream.on('data', chunk => {
   chunkIndex++;
-
+ 
+  if(chunkIndex === 1)  console.log(chunk);
+  
   if (chunkIndex === 3) {
     myReadStream.pause();
     console.log('WAS PAUSED: ', !myReadStream.isPaused());

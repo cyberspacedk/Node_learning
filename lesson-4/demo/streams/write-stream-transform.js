@@ -12,6 +12,9 @@ myWriteStream.on('finish', () => {
   console.log('File was processed');
 });
 
+
+
+
 const upperCaseTransform = new Transform({
   transform: (chunk, encoding, next) => {
     const newData = chunk
