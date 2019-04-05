@@ -19,6 +19,7 @@ app.use(bodyParser.json());
 
 
 app.all('/', (req,res)=>{
+  debugger;
   res.send('MAIN')
 })
 

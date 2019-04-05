@@ -14,6 +14,7 @@ const getId = url => {
 const multiplyId = (query, arr)=>{
   // разбиваем строку по зяпятой и получаем массив чисел/id
   const queryArr = query.split(',');
+  debugger;
   // берем исходный массив и фильтруем его по наличию в нем id таких как в массиве который мы получили из строки
   return arr.filter(car=> queryArr.includes(car.id))
 }
