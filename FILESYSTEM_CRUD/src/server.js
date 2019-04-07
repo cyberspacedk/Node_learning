@@ -31,6 +31,7 @@ app.post('/user', (req,res)=>{
     fs.writeFileSync(`${userDb}/${body.userName}.json`, JSON.stringify(body));
   }
 });
+
   // ДОБАВЛЕНИЕ В СУЩЕСТВУЮЩИЙ  JSON 
   app.post('/adduser', (req,res)=>{ 
     const body = req.body; 
