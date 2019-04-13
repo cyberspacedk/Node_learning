@@ -29,7 +29,9 @@ const startServer = port => {
     password,
     tel 
    });
+   
    newUser.save((err, doc)=> err ? console.log(err) : console.log('CREATED'));  
+
    res.send('CREATED'); 
   })
   
