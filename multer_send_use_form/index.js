@@ -34,6 +34,7 @@ app.post('/uploads', (req,res)=>{
     (err) ? res.send('<h2 style="background-color: red;"> increased limit size</h2>')
     :res.send('<h2 style="background-color: green;"> Image added </h2>');  
   });
+  
 })
 
 
