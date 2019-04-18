@@ -1,24 +1,33 @@
 const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
-const LocalStrategy = require('passport-local');
+const userDB = {
+  id: 136345,
+  email: 'test@mail.ru',
+  password: '123',
+};
 
-const userDb = {
-    id:1,
-    email: "test@yahoo.com",
-    password: "123", 
-}
+passport.serializeUser(function(user, done) {
+  console.log('Сериализация: ', user);
+  done(null, user.id);
+});
 
-passport.serializeUser((user, done)=>{
-    console.log('СЕРИЛИЗАЦИЯ', user);
-    done(null, user.id);
-})
+passport.deserializeUser(function(id, done) {
+  console.log('Десериализация: ', id);
+  const user = userDB.id === id ? userDB : false;
+  done(null, user);
+});
 
-passport.deserializeUser((id, done)=>{
-    console.log('ДЕСЕРИАЛИЗАЦИЯ', id);
-
-    const user = (userDb.id === id) ? userDb : false;
-
-    User.findByID(id, (err, user)={
-        done(err,user)
-    })
-})
+passport.use(
+  new LocalStrategy({ usernameField: 'email' }, function(
+    email,
+    password,
+    done
+  ) {
+    if (email === userDB.email && password === userDB.password) {
+      return done(null, userDB);
+    } else {
+      return done(null, false);
+    }
+  })
+);
